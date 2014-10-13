@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProductLib
 {
-    class SomeExternalVendorProduct
+    public class SomeExternalVendorProduct
     {
         public int PricePerUnit { get; set; }
         public string Description { get; set; }

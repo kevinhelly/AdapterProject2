@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProductLib
 {
-    interface IProduct
+    public interface IProduct
     {
         string Title { get; }
         decimal UnitPrice { get; }
