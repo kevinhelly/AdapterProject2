@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ProductAdapterLib;
 using ProductLib;
 
 namespace AdapterTestsLib
@@ -28,14 +29,16 @@ namespace AdapterTestsLib
         [TestMethod]
         public void SomeExternalVendorProductTest()
         {
+            SomeExternalVendorProduct sevp = new SomeExternalVendorProduct();
+            sevp.Description = "Fiskdansen 2";
+            sevp.EANCode = "|||  ||  ||||| ||";
+            sevp.PricePerUnit = 200;
 
-            string expectedDescription = "Fiskdansen 2";
-            int expectedPricePerUnit = 200;
-            string expectedEANCode = "|||  ||  ||||| ||";
+            IProduct ip = new SomeExternalVendorProductAdapter(sevp);
 
-            Assert.AreEqual(expectedDescription, "");
-            Assert.AreEqual(expectedPricePerUnit, 0);
-            Assert.AreEqual(expectedEANCode, "");
+            Assert.AreEqual(ip.BarCode, sevp.EANCode);
+            Assert.AreEqual(ip.Title,sevp.Description);
+            Assert.AreEqual(ip.UnitPrice, sevp.PricePerUnit);
         }
     }
 }
