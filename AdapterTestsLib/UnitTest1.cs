@@ -9,6 +9,7 @@ namespace AdapterTestsLib
         [TestMethod]
         public void TestMethod1()
         {
+
         }
     }
 }
